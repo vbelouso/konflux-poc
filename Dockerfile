@@ -4,7 +4,7 @@ RUN go mod download
 COPY *.go ./
 RUN CGO_ENABLED=0 GOOS=linux go build -o ./docker-gs-ping
 
-FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4-1134
+FROM registry.access.redhat.com/ubi9/ubi-minimal:9.4-1227.1725849298
 COPY --from=build /opt/app-root/src/docker-gs-ping .
 USER 65532:65532
 EXPOSE 8080
